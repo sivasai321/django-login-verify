@@ -1,0 +1,53 @@
+{% extends 'base.html'%} {% block content%}
+{% comment %} navbar {% endcomment %}
+<nav class="navbar navbar-light border-bottom bg-light">
+  <div class="container-fluid d-flex">
+    <span class="navbar-brand mb-0 h1 fs-3 ms-4"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Apple-logo.png" style="height:40px;" alt=""></span>
+    <a class="btn btn-outline-secondary me-4" href="logout">Log Out</a>
+  </div>
+</nav>
+{% comment %} banner {% endcomment %}
+<section class="py-2 py-xl-5">
+  <div class="container">
+    <div class="bg-light rounded shadow-lg border-0 border-dark overflow-hidden">
+      <div class="row g-0">
+        <div class="col-md-6">
+          <div class="text-white p-4 p-md-5">
+            <h2 class="fw-bold text-dark mb-3 fs-1">
+              Apple Store. The best way to buy the products you love.<br />
+            </h2>
+            <div class="my-3"></div>
+          </div>
+        </div>
+        <div class="col-md-6 order-first order-md-last" style="min-height: 250px">
+          <img
+            class="w-100 h-100 fit-cover"
+            src="https://www.apple.com/v/iphone/home/bi/images/overview/hero/iphone_13_pro_hero__gqclakbze4a6_large.png"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% comment %} products {% endcomment %}
+<div class="container">
+  <div class="row m-5">
+    {% for pdt in pdts %}
+    <div class="card m-4" style="width: 18rem">
+      <img src={{pdt.img}} class="card-img-top img-thumbnail"  alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">{{pdt.name}}</h5>
+        <p class="card-text">{{pdt.description}}</p>
+        <p class="card-text">Rs - {{pdt.price}}/-</p>
+        <div class="fixed-action-btn">
+        <a href="#" class="btn btn-primary">Buy Now</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+{% endblock%}
